@@ -1,22 +1,45 @@
 #![no_std]
-use soroban_sdk::{contract, contractimpl, vec, Env, String, Vec};
+
+use soroban_sdk::{
+    contract, contractimpl, contracttype, BytesN, Env, String,
+};
+
+#[contracttype]
+#[derive(Clone)]
+pub struct VerificationRecord {
+    pub cie_id: String,
+    pub record_hash: BytesN<32>,
+    pub status: String,
+    pub updated_at: u64,
+}
 
 #[contract]
-pub struct Contract;
+pub struct ExpoxurVerification;
 
-// This is a sample contract. Replace this placeholder with your own contract logic.
-// A corresponding test example is available in `test.rs`.
-//
-// For comprehensive examples, visit <https://github.com/stellar/soroban-examples>.
-// The repository includes use cases for the Stellar ecosystem, such as data storage on
-// the blockchain, token swaps, liquidity pools, and more.
-//
-// Refer to the official documentation:
-// <https://developers.stellar.org/docs/build/smart-contracts/overview>.
 #[contractimpl]
-impl Contract {
-    pub fn hello(env: Env, to: String) -> Vec<String> {
-        vec![&env, String::from_str(&env, "Hello"), to]
+impl ExpoxurVerification {
+    pub fn register_cie(
+        env: Env,
+        cie_id: String,
+        record_hash: BytesN<32>,
+    ) -> VerificationRecord {
+        let record = VerificationRecord {
+            cie_id: cie_id.clone(),
+            record_hash,
+            status: String::from_str(&env, "VERIFIED"),
+            updated_at: env.ledger().timestamp(),
+        };
+
+        env.storage().persistent().set(&cie_id, &record);
+
+        record
+    }
+
+    pub fn get_cie(
+        env: Env,
+        cie_id: String,
+    ) -> Option<VerificationRecord> {
+        env.storage().persistent().get(&cie_id)
     }
 }
 
