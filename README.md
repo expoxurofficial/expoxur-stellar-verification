@@ -167,3 +167,43 @@ expoxur-stellar-verification/
 │   └── expoxur-verification/
 ├── tests/
 └── examples/
+```
+
+Directories for contract source code, tests, and examples will be added as the technical implementation progresses.
+
+## Explicitly Out of Scope
+
+The proposed 30-day sprint does not include:
+
+- full Expoxur® marketplace development or redesign
+- mass CIE acquisition or onboarding
+- marketing, sales, or business development
+- e-commerce checkout
+- payment processing
+- escrow or settlement
+- Stellar Mainnet deployment
+- token issuance
+- NFT issuance
+- logistics or inventory management
+- supply-chain tracking
+- mobile applications
+- private or customer data stored on-chain
+- third-party security audits
+- production-grade key management
+- production compliance implementation
+
+## Security Notice
+
+No wallet secret keys, recovery phrases, private keys, API secrets, production credentials, customer information, or sensitive verification documents should ever be committed to this repository.
+
+Only public Stellar addresses, Testnet contract identifiers, transaction references, and privacy-safe test data will be published.
+
+## Repository Notice
+
+This repository contains the public Stellar integration for the Expoxur® verification proof of concept.
+
+The existing Expoxur® proprietary application code, private repositories, customer information, verification documents, credentials, and production data are not included.
+
+## License
+
+MIT License
