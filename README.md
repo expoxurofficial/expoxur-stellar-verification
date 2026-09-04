@@ -206,7 +206,7 @@ Expoxur® is an existing application under private development. The current plat
 
 This public repository is specifically for the new Stellar verification layer proposed under the 30-day Instawards sprint. It does not represent the complete Expoxur® application codebase.
 
-For technical integration context, see [Existing Expoxur® Integration Context](docs/existing-expoxur-integration.md).
+For technical integration context, see [Existing Expoxur® Integration Context](docs/existing-expoxur-integration.md)..
 
 ## License
 
