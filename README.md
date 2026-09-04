@@ -1,208 +1,143 @@
-# Expoxur® Stellar Verification
+﻿# ExpoxurÂ® Stellar Verification
 
-Public Stellar Testnet proof of concept for portable verification of Expoxur® City Impact Enterprises (CIEs) and their registered products.
+Public Stellar Testnet proof of concept for portable verification of ExpoxurÂ® City Impact Enterprises (CIEs) and their registered products.
 
-> **Status:** Pre-submission technical validation / Testnet POC in progress  
+> **Status:** Working Stellar Testnet proof of concept deployed
 > **Network:** Stellar Testnet  
 > **Proposed InstaAwards Sprint:** 30 calendar days upon approval  
 > **Live Platform:** https://expoxur.com
 
-## Live Platform
+## What This Is
 
-Expoxur® is publicly accessible at:
+ExpoxurÂ® is a platform designed to make Filipino City Impact Enterprises (CIEs), their products, and their impact more discoverable.
 
-**https://expoxur.com**
+This repository contains the public Stellar/Soroban verification layer for ExpoxurÂ®.
 
-The existing Expoxur® platform provides the current application experience for discovering City Impact Enterprises (CIEs), their profiles, products, and ecosystem activity.
+The goal is to make selected ExpoxurÂ® verification records portable and independently checkable on Stellar while keeping sensitive business and customer information off-chain.
 
-This public repository is separate from the main Expoxur® application codebase and focuses specifically on the Stellar Testnet verification layer being developed and proposed for the InstaAwards build.
+## Current Testnet Proof
 
-## Overview
+The first technical milestone is complete.
 
-Expoxur® is designed to help vetted City Impact Enterprises (CIEs) make their businesses, products, and impact more discoverable through persistent digital profiles.
+A minimal Soroban CIE verification contract has been:
 
-The Stellar Verification project adds a portable verification layer connecting Expoxur® CIE and product verification records to Stellar Testnet.
+- implemented
+- tested
+- compiled to WASM
+- uploaded to Stellar Testnet
+- successfully deployed on Stellar Testnet
 
-The goal is to allow a verification record created by an authorized Expoxur® verifier to be independently checked through Stellar, while keeping sensitive business and customer information off-chain.
+### Deployment
 
-The proposed verification experience will eventually allow users to scan an Expoxur® QR code and view the current verification status of a CIE or registered product together with corresponding Stellar Testnet evidence.
+**Network:** Stellar Testnet
 
-## Current Development Stage
+**Contract ID**
 
-Expoxur® already exists as a publicly accessible web platform at:
+`CAXGRDSHHMNYZUHR7KYVKDSETPR3IBDQYYAUAKDPI4C3PCDKZ3EN4PBU`
 
-**https://expoxur.com**
+**Deployment Transaction**
 
-The Stellar integration is currently in pre-submission technical development.
+`f1151a08dae398c85c20aee7d69561fd97d22cfe00c4f89e70e29603d98e262a`
 
-This repository will contain the public source code and technical evidence for the Stellar Testnet implementation.
+**WASM Hash**
 
-The immediate technical milestone is to establish and document a working Soroban proof of concept deployed on Stellar Testnet before proceeding with the full proposed InstaAwards scope.
+`627937bb51dc315049b48f88bb566803cda72693cf5e5028aaf03afc283e728b`
 
-## Proposed 30-Day Technical Scope
+**Deployment Evidence**
 
-The proposed InstaAwards sprint will deliver three focused technical components.
+[TESTNET_DEPLOYMENT.md](expoxur-stellar/contracts/hello-world/TESTNET_DEPLOYMENT.md)
+
+## Current Contract
+
+The current proof of concept exposes:
+
+- `register_cie`
+- `get_cie`
+
+The contract source and tests are located at:
+
+`expoxur-stellar/contracts/hello-world/`
+
+The `hello-world` directory name comes from the original Stellar contract scaffold; the implementation has been replaced with the ExpoxurÂ® CIE verification proof of concept.
+
+## Proposed 30-Day InstaAwards Build
+
+The deployed contract is intentionally minimal. The proposed 30-day build will expand the proof of concept into three connected components:
 
 ### 1. CIE Verification Registry
 
-A Soroban registry deployed on Stellar Testnet that allows an authorized Expoxur® verifier to create and manage privacy-minimized CIE verification records.
-
-The registry is intended to support:
+An authorized registry supporting:
 
 - unique CIE identifiers
 - verification record hashes
 - verification status
-- record timestamps
+- timestamps
 - authorized verification actions
-- verification status changes
+- status changes
 
-Example lifecycle:
+Target lifecycle:
 
-`VERIFIED → SUSPENDED → REVOKED`
+`VERIFIED â†’ SUSPENDED â†’ REVOKED`
 
 ### 2. CIE-to-Product Registry
 
-A Stellar Testnet registry capability allowing one or more products to be associated with a verified CIE.
+Associate registered products with verified CIEs using privacy-minimized identifiers and cryptographic hashes.
 
-The implementation will use privacy-safe identifiers and hashes while keeping sensitive business and product information off-chain.
+### 3. QR Scan & Verify
 
-### 3. QR Scan & Verify Experience
+Connect ExpoxurÂ® CIE and product profiles to durable QR verification experiences showing the current verification state and corresponding Stellar Testnet evidence.
 
-Expoxur® will provide durable QR verification links for participating CIEs and products.
-
-The public verification experience is intended to show:
-
-- CIE or product reference
-- current verification status
-- verification authority
-- latest status update
-- corresponding Stellar Testnet evidence
-
-The proof of concept will demonstrate both a valid verification case and at least one changed-status or negative verification case.
+The final proof of concept is intended to demonstrate both a valid verification case and a changed-status or negative verification case.
 
 ## Why Stellar?
 
-Expoxur® remains responsible for evaluating and vetting participating CIEs and their products.
+ExpoxurÂ® remains responsible for evaluating and vetting participating CIEs and products.
 
-Stellar does not independently validate the underlying real-world business, product, or impact claims.
+Stellar does not independently validate real-world business, product, or impact claims.
 
-Instead, Stellar provides a tamper-evident public registry showing that an authorized Expoxur® verifier recorded a particular verification state and CIE-to-product relationship.
+Instead, Stellar provides a public, tamper-evident record that an authorized ExpoxurÂ® verification action occurred.
 
-This allows Expoxur® verification records to become more portable and independently checkable beyond the Expoxur® platform itself.
+Sensitive business, customer, and verification information will remain off-chain.
 
-## Privacy Model
+## Repository Documentation
 
-Sensitive business, customer, verification, and impact information will remain off-chain.
+Detailed technical documentation is available in:
 
-The Stellar Testnet implementation will use only privacy-minimized data such as:
+- [Architecture](docs/architecture.md)
+- [Authorization & Governance](docs/authorization-governance.md)
+- [Privacy Model](docs/privacy-model.md)
+- [Existing ExpoxurÂ® Integration Context](docs/existing-expoxur-integration.md)
 
-- opaque CIE identifiers
-- opaque product identifiers
-- cryptographic record hashes
-- verification status
-- relationship references
-- timestamps
+## Security
 
-The following information will not be stored directly on-chain:
+Never commit:
 
-- personal names and contact details
+- wallet secret keys
+- recovery phrases
+- private keys
+- API secrets
+- production credentials
 - customer information
-- verification documents
-- sensitive business information
-- sensitive product information
-- detailed impact documentation
-- authentication credentials or private keys
+- sensitive verification documents
 
-## Existing Platform Context
+Only public Testnet addresses, contract identifiers, transaction references, and privacy-safe test data should be published.
 
-Expoxur® is an existing web application that is publicly accessible at:
+## Scope
 
-**https://expoxur.com**
+The proposed 30-day InstaAwards build focuses on the Stellar verification layer.
 
-The existing platform supports application-level concepts including CIE/business profiles, product records, unique identifiers, discovery flows, and verification-related states.
+It does **not** include:
 
-The main Expoxur® application codebase remains under private development.
-
-This repository exists specifically for the public Stellar verification integration and does not represent the complete Expoxur® platform codebase.
-
-For additional technical context, see:
-
-[Existing Expoxur® Integration Context](docs/existing-expoxur-integration.md)
-
-## Planned Public Technical Evidence
-
-As development progresses, this repository will contain verifiable technical evidence including:
-
-- Soroban smart contract source code
-- contract tests
-- integration tests
-- Stellar Testnet deployment
-- deployed Testnet contract ID
-- Testnet transaction references
-- sample verification records
-- QR verification examples
-- technical architecture documentation
-- privacy model documentation
-- authorization model documentation
-- reproducible setup and deployment instructions
-- test results
-- final technical demonstration
-
-Any Testnet contract IDs and transaction references will only be added after successful deployment and verification.
-
-## Repository Structure
-
-The repository is expected to evolve toward a structure similar to:
-
-```text
-expoxur-stellar-verification/
-├── README.md
-├── LICENSE
-├── docs/
-│   ├── architecture.md
-│   ├── privacy-model.md
-│   ├── authorization-model.md
-│   └── existing-expoxur-integration.md
-├── contracts/
-│   └── expoxur-verification/
-├── tests/
-└── examples/
-```
-
-Directories for contract source code, tests, and examples will be added as the technical implementation progresses.
-
-## Explicitly Out of Scope
-
-The proposed 30-day sprint does not include:
-
-- full Expoxur® marketplace development or redesign
-- mass CIE acquisition or onboarding
-- marketing, sales, or business development
-- e-commerce checkout
-- payment processing
-- escrow or settlement
+- full ExpoxurÂ® marketplace redevelopment
+- mass CIE acquisition
+- marketing or sales operations
+- payment processing or escrow
 - Stellar Mainnet deployment
-- token issuance
-- NFT issuance
+- token or NFT issuance
 - logistics or inventory management
-- supply-chain tracking
-- mobile applications
-- private or customer data stored on-chain
-- third-party security audits
-- production-grade key management
-- production compliance implementation
-
-## Security Notice
-
-No wallet secret keys, recovery phrases, private keys, API secrets, production credentials, customer information, or sensitive verification documents should ever be committed to this repository.
-
-Only public Stellar addresses, Testnet contract identifiers, transaction references, and privacy-safe test data will be published.
-
-## Repository Notice
-
-This repository contains the public Stellar integration for the Expoxur® verification proof of concept.
-
-The existing Expoxur® proprietary application code, private repositories, customer information, verification documents, credentials, and production data are not included.
+- mobile application development
+- sensitive data stored on-chain
+- production security audits or production key management
 
 ## License
 
