@@ -1,0 +1,12 @@
+# Stellar Testnet Deployment Evidence
+
+Contract ID: CAXGRDSHHMNYZUHR7KYVKDSETPR3IBDQYYAUAKDPI4C3PCDKZ3EN4PBU
+
+Deployment Transaction:
+f1151a08dae398c85c20aee7d69561fd97d22cfe00c4f89e70e29603d98e262a
+
+WASM Hash:
+627937bb51dc315049b48f88bb566803cda72693cf5e5028aaf03afc283e728b
+
+Network: Stellar Testnet
+Status: Deployed successfully
