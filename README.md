@@ -100,7 +100,7 @@ The existing Expoxur® application, proprietary systems, private repositories, v
 
 ## Existing Platform Context
 
-Expoxur® is an existing application under private development. The current platform already includes CIE/business profiles, product records, unique identifiers, discovery flows, and an existing verification-state concept.
+Expoxur® is an existing application under private development. The current platform codebase already includes CIE/business profiles, product records, unique identifiers, discovery flows, and an existing verification-state concept.
 
 This public repository is specifically for the new Stellar verification layer proposed under the 30-day Instawards sprint. It does not represent the complete Expoxur® application codebase.
 
