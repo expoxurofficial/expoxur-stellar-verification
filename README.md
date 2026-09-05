@@ -1,23 +1,23 @@
-﻿# ExpoxurÂ® Stellar Verification
+# Expoxur® Stellar Verification
 
-Public Stellar Testnet proof of concept for portable verification of ExpoxurÂ® City Impact Enterprises (CIEs) and their registered products.
+Public Stellar Testnet proof of concept for portable verification of Expoxur® City Impact Enterprises (CIEs) and their registered products.
 
-> **Status:** Working Stellar Testnet proof of concept deployed
+> **Status:** Initial Stellar Testnet proof of feasibility deployed  
 > **Network:** Stellar Testnet  
 > **Proposed InstaAwards Sprint:** 30 calendar days upon approval  
 > **Live Platform:** https://expoxur.com
 
 ## What This Is
 
-ExpoxurÂ® is a platform designed to make Filipino City Impact Enterprises (CIEs), their products, and their impact more discoverable.
+Expoxur® is a platform designed to make Filipino City Impact Enterprises (CIEs), their products, and their impact more discoverable.
 
-This repository contains the public Stellar/Soroban verification layer for ExpoxurÂ®.
+This repository contains the public Stellar/Soroban verification layer for Expoxur®.
 
-The goal is to make selected ExpoxurÂ® verification records portable and independently checkable on Stellar while keeping sensitive business and customer information off-chain.
+The goal is to make selected Expoxur® verification records portable and independently checkable on Stellar while keeping sensitive business, customer, and verification information off-chain.
 
 ## Current Testnet Proof
 
-The first technical milestone is complete.
+An initial pre-sprint technical proof of feasibility has been completed.
 
 A minimal Soroban CIE verification contract has been:
 
@@ -26,6 +26,8 @@ A minimal Soroban CIE verification contract has been:
 - compiled to WASM
 - uploaded to Stellar Testnet
 - successfully deployed on Stellar Testnet
+
+This deployment demonstrates the technical starting point for the proposed 30-day InstaAwards scope. It does not represent completion of the proposed sprint deliverables.
 
 ### Deployment
 
@@ -45,7 +47,7 @@ A minimal Soroban CIE verification contract has been:
 
 **Deployment Evidence**
 
-[TESTNET_DEPLOYMENT.md](expoxur-stellar/contracts/hello-world/TESTNET_DEPLOYMENT.md)
+[TESTNET_DEPLOYMENT.md](expoxur-stellar/contracts/expoxur-cie-verification/TESTNET_DEPLOYMENT.md)
 
 ## Current Contract
 
@@ -56,13 +58,13 @@ The current proof of concept exposes:
 
 The contract source and tests are located at:
 
-`expoxur-stellar/contracts/hello-world/`
+`expoxur-stellar/contracts/expoxur-cie-verification/`
 
-The `hello-world` directory name comes from the original Stellar contract scaffold; the implementation has been replaced with the ExpoxurÂ® CIE verification proof of concept.
+The contract package is named `expoxur-cie-verification` to reflect its project-specific purpose.
 
 ## Proposed 30-Day InstaAwards Build
 
-The deployed contract is intentionally minimal. The proposed 30-day build will expand the proof of concept into three connected components:
+The deployed contract is intentionally minimal. The proposed 30-day build will expand this technical foundation into three connected components:
 
 ### 1. CIE Verification Registry
 
@@ -77,7 +79,7 @@ An authorized registry supporting:
 
 Target lifecycle:
 
-`VERIFIED â†’ SUSPENDED â†’ REVOKED`
+`VERIFIED -> SUSPENDED -> REVOKED`
 
 ### 2. CIE-to-Product Registry
 
@@ -85,17 +87,17 @@ Associate registered products with verified CIEs using privacy-minimized identif
 
 ### 3. QR Scan & Verify
 
-Connect ExpoxurÂ® CIE and product profiles to durable QR verification experiences showing the current verification state and corresponding Stellar Testnet evidence.
+Connect Expoxur® CIE and product profiles to durable QR verification experiences showing the current verification state and corresponding Stellar Testnet evidence.
 
 The final proof of concept is intended to demonstrate both a valid verification case and a changed-status or negative verification case.
 
 ## Why Stellar?
 
-ExpoxurÂ® remains responsible for evaluating and vetting participating CIEs and products.
+Expoxur® remains responsible for evaluating and vetting participating CIEs and products.
 
 Stellar does not independently validate real-world business, product, or impact claims.
 
-Instead, Stellar provides a public, tamper-evident record that an authorized ExpoxurÂ® verification action occurred.
+Instead, Stellar provides a public, tamper-evident record that an authorized Expoxur® verification action occurred.
 
 Sensitive business, customer, and verification information will remain off-chain.
 
@@ -106,7 +108,7 @@ Detailed technical documentation is available in:
 - [Architecture](docs/architecture.md)
 - [Authorization & Governance](docs/authorization-governance.md)
 - [Privacy Model](docs/privacy-model.md)
-- [Existing ExpoxurÂ® Integration Context](docs/existing-expoxur-integration.md)
+- [Existing Expoxur® Integration Context](docs/existing-expoxur-integration.md)
 
 ## Security
 
@@ -128,7 +130,7 @@ The proposed 30-day InstaAwards build focuses on the Stellar verification layer.
 
 It does **not** include:
 
-- full ExpoxurÂ® marketplace redevelopment
+- full Expoxur® marketplace redevelopment
 - mass CIE acquisition
 - marketing or sales operations
 - payment processing or escrow

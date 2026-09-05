@@ -1,23 +1,51 @@
-# Soroban Project
+# Expoxur® Stellar Verification — Soroban Contract
+
+This directory contains the Soroban smart contract implementation for the Expoxur® Stellar Verification proof of concept.
+
+## Contract
+
+The current contract is located at:
+
+`contracts/expoxur-cie-verification/`
+
+It provides the initial on-chain CIE verification registry for Expoxur®.
+
+### Current Functions
+
+- `register_cie` — registers a CIE verification record and its cryptographic record hash.
+- `get_cie` — retrieves the stored verification record for a CIE.
+
+### Verification Record
+
+The current proof of concept stores:
+
+- CIE identifier
+- verification record hash
+- verification status
+- ledger timestamp
+
+Sensitive business information and verification documents are not stored on-chain.
+
+## Stellar Network
+
+The current proof of concept has been deployed to Stellar Testnet.
+
+Deployment evidence, including the Contract ID, deployment transaction, and WASM hash, is available at:
+
+`contracts/expoxur-cie-verification/TESTNET_DEPLOYMENT.md`
 
 ## Project Structure
 
-This repository uses the recommended structure for a Soroban project:
-
 ```text
 .
-├── contracts
-│   └── hello_world
-│       ├── src
-│       │   ├── lib.rs
-│       │   └── test.rs
-│       └── Cargo.toml
-├── Cargo.toml
-├── AGENTS.md
-└── README.md
-```
-
-- New Soroban contracts can be put in `contracts`, each in their own directory. There is already a `hello_world` contract in there to get you started.
-- If you initialized this project with any other example contracts via `--with-example`, those contracts will be in the `contracts` directory as well.
-- Contracts should have their own `Cargo.toml` files that rely on the top-level `Cargo.toml` workspace for their dependencies.
-- Frontend libraries can be added to the top-level directory as well. If you initialized this project with a frontend template via `--frontend-template` you will have those files already included.
+|-- contracts/
+|   `-- expoxur-cie-verification/
+|       |-- src/
+|       |   |-- lib.rs
+|       |   `-- test.rs
+|       |-- Cargo.toml
+|       |-- Makefile
+|       `-- TESTNET_DEPLOYMENT.md
+|-- Cargo.toml
+|-- Cargo.lock
+`-- README.md

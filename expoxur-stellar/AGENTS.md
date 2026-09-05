@@ -47,10 +47,10 @@ stellar contract invoke \
   --id <alias> \
   --network testnet \
   --source-account <identity> \
-  -- hello --to world
+  -- register_cie --cie_id <cie-id> --record_hash <record-hash>
 ```
 
-The sample `hello_world` contract exposes `hello(to: String) -> Vec<String>`. Replace that with your own functions; `stellar contract invoke --id <id> -- -h` prints the generated CLI for the deployed contract.
+The Expoxur CIE verification contract exposes project-specific verification functions. Use `stellar contract invoke --id <id> -- -h` to print the generated CLI for the deployed contract.
 
 ## Further reading
 
