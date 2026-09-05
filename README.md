@@ -11,9 +11,37 @@ Public Stellar Testnet proof of concept for portable verification of Expoxur® C
 
 Expoxur® is a platform designed to make Filipino City Impact Enterprises (CIEs), their products, and their impact more discoverable.
 
-This repository contains the public Stellar/Soroban verification layer for Expoxur®.
+This repository brings together the existing Expoxur® website frontend and the public Stellar/Soroban verification layer being developed for the proposed InstaAwards scope.
 
 The goal is to make selected Expoxur® verification records portable and independently checkable on Stellar while keeping sensitive business, customer, and verification information off-chain.
+
+## Repository Structure
+
+### Expoxur® Website
+
+The existing Expoxur® website frontend codebase is included under:
+
+`website/`
+
+It contains the React/TypeScript frontend, application pages, reusable components, public assets, and Expoxur® brand assets used by the existing platform.
+
+Live platform:
+
+https://expoxur.com
+
+### Stellar Verification Layer
+
+The Stellar/Soroban implementation is located under:
+
+`expoxur-stellar/`
+
+The current CIE verification contract is located at:
+
+`expoxur-stellar/contracts/expoxur-cie-verification/`
+
+Supporting architecture, privacy, authorization, and integration documentation is located under:
+
+`docs/`
 
 ## Current Testnet Proof
 
